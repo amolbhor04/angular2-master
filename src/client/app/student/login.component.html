@@ -1,0 +1,21 @@
+<p>Login page</p>
+
+<div>
+    <input type="text" [ngModel]="name" name="username" maxlength="15">
+    <br>
+    <input type="text" [(ngModel)]="name" name="username1" maxlength="15">
+    <br>
+    <input type="password" name="password">
+</div>
+<div>
+    <br>
+    <button type="submit" (click)="savedata($event)">OK</button>
+</div>
+<br> name -
+<b>{{name}}</b> | product Type -
+<b>{{productType}} </b>
+<div>
+    <ul *ngIf="dataList">
+        <li *ngFor="let i of dataList"> {{i}}</li>
+    </ul>
+</div>

@@ -1,0 +1,26 @@
+<p>Stud page</p>
+<div>{{name}}</div>
+<br>
+<div>{{producttype}}</div>
+<br>
+<div>{{list}}
+    <ul>
+        <li *ngFor="let i of list">{{i}}</li>
+    </ul>
+</div>
+<br> --------------------------------------------------------
+<sdt-login [productType]="producttype" [name]="name" (click)="acceptoutput($event)"></sdt-login>
+
+<!-- <form class="login" [formGroup]="_myform" (ngSubmit)="logIn()">
+    <div>
+        <input placeholder="{{'Enter User Name' | translate}}" formControlName="userName" type="text">
+        <span *ngIf="_myform.get('userName').hasError('required')">{{'error msg' | translate}}</span>
+    </div>
+    <br>
+    <div>
+        <input placeholder="{{'Enter Password' | translate}}" formControlName="password" type="password">
+        <span *ngIf="_myform.get('password').hasError('required')">{{'error msg' | translate}}</span>
+    </div>
+    <br>
+    <div></div>
+</form> -->

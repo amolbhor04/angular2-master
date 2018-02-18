@@ -1,0 +1,64 @@
+<h3>hello user {{name}}</h3>
+<br>
+<div>
+    <!-- <input type="text" [ngModel]="name" name="username" maxlength="15" required (change)="onchange($event)">
+        <br> -->
+    <!-- <input type="text" [(ngModel)]="name" name="username1" maxlength="15" required>
+        <br> -->
+    <!-- <input type="password" [(ngModel)]="name" name="password" maxlength="15">
+        <br> -->
+
+    <input id="username" name="username" class="form-control" required minlength="4" appForbiddenName="bob" 
+    [(ngModel)]="name" #username="ngModel" (change)="onchange($event)">
+    <span *ngIf="username.errors.minlength"> please enter min 4 char</span>
+   
+    <button type="submit" (click)="createUser($event)" [disabled]="false">Create User</button>
+</div>
+<br><br><br>
+
+<div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert alert-danger">
+
+        <div *ngIf="username.errors.required">
+            Name is required.
+        </div>
+        <div *ngIf="username.errors.minlength">
+            Name must be at least 4 characters long.
+        </div>
+        <div *ngIf="username.errors.forbiddenName">
+            Name cannot be Bob.
+        </div>
+
+    </div>
+
+<div>{{name}}</div>
+<div>{{password}}</div>
+<div>{{email}}</div>
+<div>{{address | json}}</div>
+<br> {{lable}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div *ngIf="name.invalid && (name.dirty || name.touched)"
+class="alert alert-danger">
+
+<div *ngIf="name.errors.required">
+Name is required.
+</div>
+<div *ngIf="name.errors.minlength">
+Name must be at least 4 characters long.
+</div>
+<div *ngIf="name.errors.forbiddenName">
+Name cannot be clark.
+</div>
+
+</div> -->
